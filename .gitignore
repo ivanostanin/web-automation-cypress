@@ -1,0 +1,12 @@
+node_modules/
+cypress/videos/
+cypress/screenshots/
+cypress/reports/
+cypress/downloads/
+.env
+.env.local
+**/*.log
+.DS_Store
+
+allure-report/
+allure-results/
