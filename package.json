@@ -1,0 +1,20 @@
+{
+  "name": "mini-project",
+  "version": "1.0.0",
+  "devDependencies": {
+    "allure-cypress": "^3.3.0",
+    "cypress": "^14.5.0",
+    "http-server": "^14.1.1"
+  },
+  "scripts": {
+    "app:run": "cd ./src && npx http-server -p 3000",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:run:prod": "cypress run --env environmentName=\"prod\"",
+    "cypress:run:chrome": "cypress run --browser chrome",
+    "cypress:run:firefox": "cypress run --browser firefox",
+    "cypress:run:headed": "cypress run --headed",
+    "cypress:run:spec": "cypress run --spec",
+    "allure:serve": "allure generate ./allure-results -o ./allure-report --clean && allure serve"
+  }
+}
