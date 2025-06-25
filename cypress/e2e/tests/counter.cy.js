@@ -1,5 +1,6 @@
 // Further improvement: use parametrized test cases to automate TC002, TC004, TC005, TC006
 // Further improvement: introduce data-testid for the DOM objects, actively used in tests.
+// Further improvement: tag test cases from 'Edge cases' test plan to be able to run them separately from other tests
 
 import * as allure from "allure-js-commons";
 import counterPage from '../pages/counterPage.js';
