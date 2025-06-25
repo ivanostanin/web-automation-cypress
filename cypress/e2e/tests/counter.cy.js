@@ -1,4 +1,6 @@
 import * as allure from "allure-js-commons";
+import counterPage from '../pages/counterPage.js';
+
 
 describe('Counter Functionality', () => {
     it('should increment counter by 1', () => {
@@ -6,25 +8,27 @@ describe('Counter Functionality', () => {
         allure.feature('Incrementation');
         allure.story('Via button');
         allure.severity('critical');
-        allure.tag('smoke')
+        allure.tag('smoke');
 
         let counterValue = 0;
 
         allure.step('Navigate to the Counter', () => {
-            cy.visit('/');
+            counterPage.open();
         });
 
         allure.step('Get current Counter value', () => {
-            cy.get('[id=counter]').invoke('text').then((text) => {
-                let counterValue = parseInt(text, 10);
-            });
+            counterPage.getCounterValue()
+                       .then((value) => {
+                           counterValue = value;
+                       });
         });
 
         allure.step('Increment counter using button', () => {
-            cy.get('[id=increment-btn]').click();
-            cy.get('[id=counter]').invoke('text').then((text) => {
-                expect( parseInt(text, 10)).to.equal(counterValue + 1);
-            });
+            counterPage.incrementCounter();
+            counterPage.getCounterValue()
+                       .then((value) => {
+                           expect(value).to.equal(counterValue + 1);
+                       });
         });
     })
 })
