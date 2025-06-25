@@ -13,7 +13,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -52,3 +53,23 @@ jobs:
         with:
           name: allure-report
           path: ./allure-report
+
+      - name: Get sanitized branch name
+        id: branch
+        run: |
+          BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+          SANITIZED_BRANCH=$(echo "$BRANCH_NAME" | sed 's#/#-#g')
+          echo "branch_path=$SANITIZED_BRANCH" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy Allure report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./allure-report
+          destination_dir: "${{ steps.branch.outputs.branch_path }}/allure/"
+
+      - name: Print Report URL
+        run: |
+          echo "Allure report available at:"
+          echo "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ steps.branch.outputs.branch_path }}/allure/index.html"
