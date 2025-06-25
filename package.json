@@ -2,6 +2,7 @@
   "name": "mini-project",
   "version": "1.0.0",
   "devDependencies": {
+    "allure-commandline": "^2.34.1",
     "allure-cypress": "^3.3.0",
     "cypress": "^14.5.0",
     "http-server": "^14.1.1"
@@ -15,6 +16,7 @@
     "cypress:run:firefox": "cypress run --browser firefox",
     "cypress:run:headed": "cypress run --headed",
     "cypress:run:spec": "cypress run --spec",
-    "allure:serve": "allure generate ./allure-results -o ./allure-report --clean && allure serve"
+    "allure:generate": "allure generate ./allure-results -o ./allure-report --clean",
+    "allure:serve": "npm run allure:generate && allure serve"
   }
 }

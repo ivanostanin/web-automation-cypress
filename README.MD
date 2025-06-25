@@ -36,3 +36,9 @@ All code should be on Github, the GH runner should have had at least one seccess
     ```bash
     npm run allure:serve
     ```
+   
+## GitHub Actions
+
+GitHub Actions workflow is configured to run Cypress tests on each push.
+Allure report is available by URL `https://ivanostanin.github.io/web-automation-cypress/<branch name>/allure/index.html`.
+I.e. `https://ivanostanin.github.io/web-automation-cypress/main/allure/index.html`.
