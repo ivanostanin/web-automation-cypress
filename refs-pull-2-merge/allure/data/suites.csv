@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","316","TC009: decrement then increment from 0","Counter Functionality","Wed Jun 25 14:52:11 UTC 2025","failed","Wed Jun 25 14:52:11 UTC 2025","","","",""
+"","117","TC001: initial counter should display 0","Counter Functionality","Wed Jun 25 14:52:09 UTC 2025","passed","Wed Jun 25 14:52:09 UTC 2025","","","",""
+"","140","TC002: should increment counter by 1","Counter Functionality","Wed Jun 25 14:52:09 UTC 2025","passed","Wed Jun 25 14:52:10 UTC 2025","","","",""
+"","224","TC004: click decrement from 0","Counter Functionality","Wed Jun 25 14:52:10 UTC 2025","failed","Wed Jun 25 14:52:10 UTC 2025","","","",""
+"","126","TC008: increment to maximum safe integer","Counter Functionality","Wed Jun 25 14:52:10 UTC 2025","passed","Wed Jun 25 14:52:10 UTC 2025","","","",""
