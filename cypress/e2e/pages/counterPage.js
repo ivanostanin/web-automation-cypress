@@ -27,6 +27,12 @@ class counterPage extends basePage {
         this.decrementButton.click();
     }
 
+    setCounterValue(newValue) {
+        this.counter
+            .then(($el) => {
+                $el.text(newValue);
+            });
+    }
 }
 
 export default new counterPage();

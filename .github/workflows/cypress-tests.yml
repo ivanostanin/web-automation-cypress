@@ -56,6 +56,7 @@ jobs:
 
       - name: Get sanitized branch name
         id: branch
+        if: always()
         run: |
           BRANCH_NAME="${GITHUB_REF#refs/heads/}"
           SANITIZED_BRANCH=$(echo "$BRANCH_NAME" | sed 's#/#-#g')
@@ -63,6 +64,7 @@ jobs:
 
       - name: Deploy Allure report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
+        if: always()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
@@ -70,6 +72,7 @@ jobs:
           destination_dir: "${{ steps.branch.outputs.branch_path }}/allure/"
 
       - name: Print Report URL
+        if: always()
         run: |
           echo "Allure report available at:"
           echo "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ steps.branch.outputs.branch_path }}/allure/index.html"
